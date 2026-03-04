@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "zones": {
+    "green": {
+      "label": "Auto-Execute",
+      "color": "\u001b[32m",
+      "description": "Trusted skills run without asking",
+      "requiresApproval": false,
+      "skills": []
+    },
+    "yellow": {
+      "label": "Propose + Approve",
+      "color": "\u001b[33m",
+      "description": "Show plan, wait for user approval",
+      "requiresApproval": true,
+      "skills": ["builtin:time", "builtin:date", "builtin:math", "builtin:ls", "builtin:echo", "builtin:help"]
+    },
+    "red": {
+      "label": "Surface Only",
+      "color": "\u001b[31m",
+      "description": "Show information only, never auto-execute",
+      "requiresApproval": true,
+      "autoExecuteEligible": false,
+      "skills": []
+    }
+  },
+  "defaultZone": "yellow"
+}

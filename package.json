@@ -1,0 +1,17 @@
+{
+  "name": "grove-hello",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "build": "tsc",
+    "dev": "tsx watch src/main.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3"
+  }
+}

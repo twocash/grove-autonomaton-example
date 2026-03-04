@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "tiers": {
+    "0": {
+      "name": "Sovereign Compute",
+      "description": "Compiled skills — no LLM, zero cost, fully private, runs on your machine",
+      "costPerCall": "$0",
+      "skills": {}
+    },
+    "1": {
+      "name": "Local Heuristic",
+      "description": "Keyword matching to built-in commands — no LLM, zero cost",
+      "costPerCall": "$0",
+      "matchers": [
+        { "keywords": ["time", "clock"], "skill": "builtin:time" },
+        { "keywords": ["date", "today", "day"], "skill": "builtin:date" },
+        { "keywords": ["calculate", "math", "+", "-", "*", "/", "plus", "minus", "times"], "skill": "builtin:math" },
+        { "keywords": ["list", "files", "ls", "directory", "dir"], "skill": "builtin:ls" },
+        { "keywords": ["echo", "say", "repeat"], "skill": "builtin:echo" },
+        { "keywords": ["help", "commands", "what can you"], "skill": "builtin:help" }
+      ]
+    },
+    "2": {
+      "name": "Standard LLM",
+      "description": "Simple questions — cheap, fast model",
+      "costPerCall": "~$0.001",
+      "provider": {
+        "name": "gemini",
+        "model": "gemini-2.0-flash",
+        "apiKeyEnv": "GEMINI_API_KEY",
+        "endpoint": "https://generativelanguage.googleapis.com/v1beta/models"
+      }
+    },
+    "3": {
+      "name": "Apex Agentic",
+      "description": "Complex/dangerous operations — most capable model",
+      "costPerCall": "~$0.03",
+      "provider": {
+        "name": "openai",
+        "model": "gpt-4o",
+        "apiKeyEnv": "OPENAI_API_KEY",
+        "endpoint": "https://api.openai.com/v1/chat/completions"
+      }
+    }
+  }
+}
